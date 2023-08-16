@@ -419,7 +419,7 @@ public class Library {
         memberController.setMembers(fileManager.loadMembersFromFile());
         bookController.setBooks(fileManager.loadBookFromFile(memberController.getMembers()));
         libraryRecords = fileManager.loadRecordFromFile(bookController.getBooks(), memberController.getMembers());
-        System.out.println("Data berhasil di load.");
+        System.out.println("Data telah di load.");
         inputHandler.delayInput();
     }
 }

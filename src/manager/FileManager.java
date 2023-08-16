@@ -76,7 +76,7 @@ public class FileManager {
             }
             br.close();
         } catch (IOException e) {
-            System.out.print("");
+            System.out.println("File Member.csv tidak ditemukan.");
         }
         return members;
     }
@@ -137,7 +137,7 @@ public class FileManager {
             }
             br.close();
         } catch (IOException e) {
-            System.out.print("");
+            System.out.println("File Book.csv tidak ditemukan.");
         }
         return books;
     }
@@ -169,7 +169,7 @@ public class FileManager {
             }
             bf.close();
         } catch (IOException e) {
-            System.out.print("");
+            System.out.println();
         }
     }
 
@@ -203,7 +203,7 @@ public class FileManager {
             }
             br.close();
         } catch (Exception e) {
-            System.out.print("");
+            System.out.println("File Record.csv tidak ditemukan.");
         }
 
         return records;
