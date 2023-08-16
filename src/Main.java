@@ -7,6 +7,7 @@ public class Main {
         DisplayPrint displayPrint = new DisplayPrint();
         InputHandler inputHandler = new InputHandler();
         Library library = new Library();
+        library.defaultData();
 
         while (true) {
             try {

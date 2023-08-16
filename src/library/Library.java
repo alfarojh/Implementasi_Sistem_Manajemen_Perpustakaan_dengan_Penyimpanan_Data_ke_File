@@ -4,7 +4,6 @@ import custom.InputHandler;
 import custom.TableGenerate;
 import library.controller.BookController;
 import library.controller.MemberController;
-import library.models.Book;
 import library.models.LibraryRecord;
 import library.models.Member;
 import manager.FileManager;
@@ -18,6 +17,27 @@ public class Library {
     private final InputHandler inputHandler = new InputHandler();
     private final FileManager fileManager = new FileManager();
 
+
+    // Untuk mengenerate data secara default
+    public void defaultData() {
+        bookController.addBook("978-054-501-022-1",
+                "Harry Potter and the deathly hallows",
+                "J. K. Rowling");
+        bookController.addBook("978-054-501-022-2",
+                "Harry Potter and the deathly hallows",
+                "J. K. Rowling");
+        bookController.addBook("978-602-032-480-7",
+                "Harry Potter dan batu bertuah",
+                "J. K. Rowling");
+        bookController.addBook("978-602-030-175-4",
+                "Izinkan aku mencintaimu",
+                "Esi Lahur");
+        bookController.addBook("978-602-030-177-8",
+                "Dimsum daging babi",
+                "Mary Winata");
+        memberController.addMember("Udin");
+        memberController.addMember("Santi");
+    }
     //=================================== Book Section ======================================
 
     // Menambahkan buku baru ke dalam koleksi buku

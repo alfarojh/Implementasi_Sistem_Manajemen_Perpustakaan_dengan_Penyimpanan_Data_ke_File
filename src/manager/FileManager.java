@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class FileManager {
 
-    private final String wordSeparator = ",/.";
+    private final String wordSeparator = ",";
     private String pathMember;
     private String pathBook;
     private String pathRecord;
@@ -150,7 +150,7 @@ public class FileManager {
             BufferedWriter bf = new BufferedWriter(fw);
 
             for (LibraryRecord libraryRecord: listRecord) {
-                bf.append(libraryRecord.getStatusBorrow()).append(wordSeparator);
+                bf.append(libraryRecord.getTimestampBorrow()).append(wordSeparator);
                 for (Book book: listBooks) {
                     if (book.equals(libraryRecord.getBook())) {
                         bf.append(book.getISBN()).append(wordSeparator);
