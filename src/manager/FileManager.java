@@ -116,8 +116,15 @@ public class FileManager {
     // Fungsi untuk memuat file dan menyimpannya ke dalam list buku
     public ArrayList<Book> loadBookFromFile(ArrayList<Member> listMembers) {
         ArrayList<Book> books = new ArrayList<>();
+        File file = new File(pathBook);
+        if (listMembers.size() == 0) {
+            System.out.println("File Book.csv gagal dimuat.");
+            if (file.delete()) {
+                System.out.println("File Book.csv dihapus.");
+            }
+            return books;
+        }
         try {
-            File file = new File(pathBook);
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
 
@@ -176,8 +183,16 @@ public class FileManager {
     // Fungsi untuk memuat file dan menyimpannya ke dalam list transaksi peminjaman
     public ArrayList<LibraryRecord> loadRecordFromFile(ArrayList<Book> listBooks, ArrayList<Member> listMembers) {
         ArrayList<LibraryRecord> records = new ArrayList<>();
+        File file = new File(pathRecord);
+
+        if(listMembers.size() == 0 || listBooks.size() == 0) {
+            System.out.println("File Record.csv gagal dimuat.");
+            if (file.delete()) {
+                System.out.println("File Record.csv dihapus.");
+            }
+            return records;
+        }
         try {
-            File file = new File(pathRecord);
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
 
