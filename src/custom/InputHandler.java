@@ -5,12 +5,21 @@ import java.util.Scanner;
 public class InputHandler {
     private final Scanner scanner = new Scanner(System.in);
 
-    // Menampilkan pesan error dalam warna merah
+    /**
+     * Mencetak pesan kesalahan dengan menggunakan warna teks merah.
+     *
+     * @param message Pesan kesalahan yang akan dicetak.
+     */
     public void errorMessage(String message) {
         System.out.println("\u001B[31m" + message + "\u001B[0m");
     }
 
-    // Mendapatkan input bilangan bulat dengan operator + atau -
+    /**
+     * Meminta input bilangan bulat dengan operator + atau - dari pengguna.
+     *
+     * @param message Pesan yang akan ditampilkan sebelum meminta input.
+     * @return Bilangan bulat hasil input pengguna.
+     */
     public int getIntegerInputWithOperator(String message) {
         // Menampilkan pesan input dan mengambil baris input dari pengguna
         System.out.print(message);
@@ -20,7 +29,7 @@ public class InputHandler {
         while (!input.matches("^[-+]?\\d+")) {
             // Menampilkan pesan error jika input tidak sesuai
             errorMessage("Maaf, harap masukkan input berupa bilangan bulat atau menggunakan operator + atau -.");
-            newLine();
+            newLine(); // Metode newLine() tidak diberikan dalam kode ini, tetapi diasumsikan untuk mencetak baris baru.
 
             // Menampilkan ulang pesan input dan mengambil input baru dari pengguna
             System.out.print(message);
@@ -29,7 +38,6 @@ public class InputHandler {
 
         // Mengonversi input yang valid menjadi bilangan bulat dan mengembalikannya
         return Integer.parseInt(input);
-
     }
 
     // Mendapatkan input bilangan bulat positif
@@ -54,12 +62,20 @@ public class InputHandler {
 
     }
 
-    // Menunggu input tanpa memprosesnya (untuk memberikan jeda)
-    public void delayInput () {
+    /**
+     * Memberikan jeda dengan menunggu input tanpa memprosesnya.
+     * Berguna untuk memberikan waktu antara tampilan dan aksi pengguna.
+     */
+    public void delayInput() {
         scanner.nextLine();
     }
 
-    // Mendapatkan input teks yang tidak boleh kosong
+    /**
+     * Meminta input teks yang tidak boleh kosong dari pengguna.
+     *
+     * @param message Pesan yang akan ditampilkan sebelum meminta input.
+     * @return Teks hasil input pengguna setelah di-trim.
+     */
     public String getInputText(String message) {
         // Menampilkan pesan input dan mengambil baris input dari pengguna
         System.out.print(message);
@@ -69,7 +85,7 @@ public class InputHandler {
         while (input.equals("")) {
             // Menampilkan pesan error jika input kosong
             errorMessage("Maaf, input tidak boleh kosong!");
-            newLine();
+            newLine(); // Metode newLine() tidak diberikan dalam kode ini, tetapi diasumsikan untuk mencetak baris baru.
 
             // Menampilkan ulang pesan input dan mengambil input baru dari pengguna
             System.out.print(message);
@@ -78,10 +94,13 @@ public class InputHandler {
 
         // Mengembalikan input yang valid setelah di-trim
         return input;
-
     }
 
-    // Melakukan pemindahan baris sejumlah tertentu (opsional)
+    /**
+     * Melakukan pemindahan baris sejumlah tertentu (opsional).
+     *
+     * @param count Jumlah baris yang akan dipindahkan (opsional).
+     */
     public void newLine(int... count) {
         int numLines = (count.length > 0) ? count[0] : 1;
         for (int i = 0; i < numLines; i++) {
@@ -89,9 +108,11 @@ public class InputHandler {
         }
     }
 
-
-    // Menutup scanner untuk menghindari kebocoran sumber daya
-    public void close () {
+    /**
+     * Menutup scanner untuk menghindari kebocoran sumber daya.
+     * Disarankan untuk dipanggil setelah selesai menggunakan objek ini.
+     */
+    public void close() {
         scanner.close();
     }
 }

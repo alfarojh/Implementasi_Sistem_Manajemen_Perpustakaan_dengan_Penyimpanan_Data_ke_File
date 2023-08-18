@@ -7,7 +7,7 @@ public class Main {
         DisplayPrint displayPrint = new DisplayPrint();
         InputHandler inputHandler = new InputHandler();
         Library library = new Library();
-        library.defaultData();
+//        library.defaultData();
 
         while (true) {
             try {
@@ -65,7 +65,6 @@ public class Main {
                 }
             } catch (Exception e) {
                 System.out.println("Keluar program.");
-//                e.printStackTrace();
                 break;
             }
         }
